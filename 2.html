@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="2.css">
+</head>
+<body>
+    <section class="hero" id="home">
+  <div class="hero-content">
+    <h2 class="video-text">
+      HAPPY TEACHERS DAY!
+      <video autoplay loop muted playsinline>
+        <source src="vid1.mp4" type="video/mp4">
+      </video>
+    </h2>
+
+    <!-- YOUR PICTURE — CENTERED WITH BOX SHADOW -->
+    <img src="img1.png" alt="Teacher's Day" class="hero-picture">
+
+    <p>THANK YOU MA'AM SA MALUPET NYONG PAGTUTURO!!!, MARAMI AKONG NATUTUNAN THIS SEMESTER,I HOPE NA MAGING PROF KA PA NAMIN SA 2ND SEMESTER. NAWA'Y MAKITA NA NATIN ANG ONE-PIECE MA'AM AT PAALAGA NG SARILI MO MA'AM! THANK YOU PO!</p>
+
+    <a href="" target="_blank">
+    
+    </a>
+  </div>
+</section>
+
+<!-- MUSIC PLAYER — BOTTOM LEFT -->
+<div class="music-player">
+  <button class="music-btn" id="musicToggle">🎵</button>
+  <audio id="bgSong" loop preload="auto">
+    <source src="music1.mp3" type="audio/mpeg">
+  
+</div>
+
+<!-- JAVASCRIPT — ADD THIS PART -->
+<script>
+const song = document.getElementById('bgSong');
+const btn = document.getElementById('musicToggle');
+let isPlaying = false;
+
+btn.addEventListener('click', () => {
+  if (!isPlaying) {
+    song.play()
+      .then(() => {
+        btn.textContent = '🔊';
+        btn.classList.add('playing');
+        isPlaying = true;
+      })
+      .catch(err => {
+        alert('Check if music1.mp3 is in the same folder!');
+      });
+  } else {
+    song.pause();
+    btn.textContent = '🎵';
+    btn.classList.remove('playing');
+    isPlaying = false;
+  }
+});
+</script>
+
+</body>
+</html>
